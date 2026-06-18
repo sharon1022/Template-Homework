@@ -14,28 +14,28 @@ struct Student
 void addInfo(vector<Student>& stu){
     string id, name;
     int score;
-    cout << "請輸入學生學號>> ";
+    cout << "Please enter student ID: ";
     cin >> id;
     for (const auto& s : stu) {
         if (s.id == id) {
-            cout << "學號已存在，請重新輸入。\n";
+            cout << "Student ID already exists. Please enter a different ID.\n";
             return;
         }
     }
-    cout << "請輸入學生姓名>> ";
+    cout << "Please enter student name: ";
     cin >> name;
-    cout << "請輸入學生分數>> ";
+    cout << "Please enter student score: ";
     cin >> score;
     stu.push_back({id, name, score});
 }
 
 void showInfo(const vector<Student>& stu){
     if (stu.empty()) {
-        cout << "沒有學生資料。\n";
+        cout << "No student information available.\n";
         return;
     }
     for (const auto& s : stu) {
-        cout << "學號: " << s.id << ", 姓名: " << s.name << ", 分數: " << s.score << endl;
+        cout << "Student ID: " << s.id << ", Name: " << s.name << ", Score: " << s.score << endl;
     }
 }
 
@@ -47,19 +47,19 @@ void sortbyScore(vector<Student>& stu){
 
 void searchbyID(const vector<Student>& stu){
     string id;
-    cout << "請輸入要查詢的學號: ";
+    cout << "Please enter the student ID to search for: ";
     cin >> id;
     if (stu.empty()) {
-        cout << "沒有學生資料。\n";
+        cout << "No student information available.\n";
         return;
     }
     for (const auto& s : stu) {
         if (s.id == id) {
-            cout << "找到學生！學號: " << s.id << ", 姓名: " << s.name << ", 成績: " << s.score << endl;
+            cout << "Student found! ID: " << s.id << ", Name: " << s.name << ", Score: " << s.score << endl;
             return;
         }
     }
-    cout << "找不到該學號的學生！\n";
+    cout << "Student with ID " << id << " not found.\n";
 }
 
 template<class T>
@@ -75,7 +75,7 @@ T getMin(T a, T b) {
 void statistics(const vector<Student>& stu){
     
     if (stu.empty()) {
-        cout << "沒有學生資料。\n";
+        cout << "No student information available.\n";
         return;
     }
 
@@ -98,11 +98,11 @@ void statistics(const vector<Student>& stu){
 
     double averageScore = static_cast<double>(totalScore) / stu.size();
 
-    cout << "平均分數: " << averageScore << endl;
-    cout << "最高分: " << maxScore << endl;
-    cout << "最低分: " << minScore << endl;
-    cout << "及格人數: " << passCount << endl;
-    cout << "不及格人數: " << failCount << endl;
+    cout << "Average Score: " << averageScore << endl;
+    cout << "Highest Score: " << maxScore << endl;
+    cout << "Lowest Score: " << minScore << endl;
+    cout << "Number of Students who passed: " << passCount << endl;
+    cout << "Number of Students who failed: " << failCount << endl;
 }
 
 int main() {
