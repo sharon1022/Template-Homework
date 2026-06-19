@@ -23,7 +23,8 @@ void addInfo(vector<Student>& stu){
         }
     }
     cout << "Please enter student name: ";
-    cin >> name;
+    cin.ignore(); // ignore the newline character left in the input buffer
+    getline(cin , name);
     cout << "Please enter student score: ";
     cin >> score;
     stu.push_back({id, name, score});
@@ -118,7 +119,7 @@ int main() {
         cout << "0. Exit\n";
         cout << "Please select an operation: ";
         cin >> choice;
-
+        cin.ignore(); // ignore the newline character left in the input buffer
         switch (choice) {
             case 1:
                 addInfo(students);
